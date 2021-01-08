@@ -1,8 +1,8 @@
 import moment from "moment";
-import mongoos from "mongoose";
+import mongoose from "mongoose";
 
 //Create Schema
-const UserSchema = new mongoos.Schema({
+const UserSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -11,6 +11,10 @@ const UserSchema = new mongoos.Schema({
         type: String,
         required: true,
         unique: true,
+    },
+    password:{
+        type: String,
+        required: true,
     },
     role: {
         type: String,
@@ -25,7 +29,7 @@ const UserSchema = new mongoos.Schema({
         {
             post_id: {
                 type: mongoose.Schema.Types.ObjectId,
-                ref: "posts",
+                ref: "post",
             },
             comment_id: {
                 type: mongoose.Schema.Types.ObjectId,
@@ -36,11 +40,11 @@ const UserSchema = new mongoos.Schema({
     posts: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "posts",
+            ref: "post",
         },
     ],
 });
 
-const User = mongoos.model("user", UserSchema);
+const User = mongoose.model("user", UserSchema);
 
 export default User;

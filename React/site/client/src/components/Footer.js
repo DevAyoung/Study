@@ -3,9 +3,10 @@ import { Row, Col } from 'reactstrap';
 import styled from 'styled-components';
 
 const MainFooter = styled.div`
-    background-color : lightpink;
+    background-color : #251552;
     text-align: center;
     padding: 0.5rem;
+    color: #fff;
 `
 
 
@@ -18,7 +19,7 @@ const Footer = () => {
 
     return (
         <MainFooter>
-            <Row>
+            <Row className="mr-0">
                 <Col>
                     <p>
                         Copyright &copy; <span>{thisYear()}</span>

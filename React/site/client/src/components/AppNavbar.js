@@ -8,8 +8,8 @@ import RegisterModal from './auth/RegisterModal';
 
 const AppNavbar = () => {
 
-    const [isOpen, setIsOpen] = useState(false)
-    const {isAuthenticated, user, userRole} = useSelector((state) => state.auth)
+    const [isOpen, setIsOpen] = useState(false);
+    const {isAuthenticated, user, userRole} = useSelector((state) => state.auth);
     console.log(userRole, "UserRole")
 
 
@@ -41,7 +41,7 @@ const AppNavbar = () => {
             <NavItem>
                 {userRole === "MainJuin" ? (
                     <Form className="col mt-2">
-                        <Link to="post" className="btn btn-success block text-white px-3" onClick={addPostClick}>
+                        <Link to="/post" className="btn btn-success block text-white px-3" onClick={addPostClick}>
                             ADD POST
                         </Link>
                     </Form>
@@ -51,9 +51,9 @@ const AppNavbar = () => {
             <NavItem className="d-flex justify-content-center">
                 <Form className="col mt-2">
                     {user && user.name ? (
-                        <Link>
+                        <Link to="#">
                             <Button outline color="light" className="px-3" block>
-                                <strong>{user ? `환영합니다 $(user.name)`:""}</strong>
+                                <strong>{user ? `환영합니다 ${user.name}`:""}</strong>
                             </Button>
                         </Link>
                     ): (
@@ -104,11 +104,7 @@ const AppNavbar = () => {
 
                     <Collapse isOpen={isOpen} navbar>
                         <Nav className="ml-auto d-flex justify-content-around" navbar>
-                        {isAuthenticated ? (
-                            authLink 
-                        ) : ( 
-                            guestLink
-                        )}    
+                        {isAuthenticated ? authLink : guestLink}
                         </Nav>     
                     </Collapse>
                 

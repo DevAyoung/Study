@@ -37,10 +37,11 @@ const RegisterModal = () => {
     }
 
     const onSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         const {name, email, password} = form;
         const newUser = {name, email, password}
         console.log(newUser, "newUser")
+        debugger;
         dispatch({
             type: REGISTER_REQUEST,
             payload: newUser

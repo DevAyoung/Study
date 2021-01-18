@@ -10,6 +10,11 @@ const MainFooter = styled.div`
 `
 
 
+const FooterText = styled.div`
+    color: #fff;
+    font-size: 12px;
+`
+
 const Footer = () => {
     const thisYear = () => {
         const year = new Date().getFullYear();
@@ -17,13 +22,18 @@ const Footer = () => {
     }
 
 
+
+
     return (
         <MainFooter>
             <Row className="mr-0">
                 <Col>
                     <p>
-                        Copyright &copy; <span>{thisYear()}</span>
+                        Copyright &copy; <span>{thisYear()}</span> 
                     </p>
+                    <FooterText>
+                        LEEAYOUNG's Blog All Rights Reserved.
+                    </FooterText>
                 </Col>
             </Row>
         </MainFooter>
